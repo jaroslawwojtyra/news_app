@@ -1,0 +1,11 @@
+#Category {
+    height: 40px;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+  }
+
+  #Category > p {
+    font-size: 16px;
+    font-weight: bold;
+  }
