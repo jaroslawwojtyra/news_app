@@ -1,8 +1,8 @@
 import './Main.css'
 import React from 'react';
 import HomePage from './HomePage/HomePage'
-import ElectionPage from './ElectionPage'
-import HelpPage from './HelpPage'
+import ElectionPage from './ElectionPage/ElectionPage'
+import HelpPage from './HelpPage/HelpPage'
 import {Switch, Route} from "react-router-dom";
 
 const Main = () => (

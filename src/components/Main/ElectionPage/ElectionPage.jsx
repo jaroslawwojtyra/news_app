@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ElectionPage.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -7,7 +8,7 @@ const ElectionPage = () => {
   const [startDate, setStartDate] = useState(new Date());
 
 return (
-  <div>
+  <div className="ElectionPage">
     <div>
       <label>Data początkowa: </label>
       <DatePicker selected={startDate} onChange={setStartDate} />
