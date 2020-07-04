@@ -38,7 +38,7 @@ render() {
   const { results } = this.state;
   if (!results) return null;
   return (
-    <div>
+    <div id="HomePage">
       <NewsFiltersBar onCategoryChange={this.setCategory} />
       <NewsList articles={results.articles} />
     </div>
