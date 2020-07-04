@@ -3,9 +3,6 @@ const cors = require('cors');
 const app = express();
 const port = 4000;
 
-const NewsAPI = require('./newsapi');
-const newsapi = new NewsAPI('6078a932749a402d9d4278e5aff3166d');
-
 app.use(cors());
 
 app.get('/articles', (req, res) => {
