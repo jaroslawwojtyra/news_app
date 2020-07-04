@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const newsapi = require('./newsapi');
 const app = express();
 const port = 4000;
+
+const NewsAPI = require('./newsapi');
+const newsapi = new NewsAPI('6078a932749a402d9d4278e5aff3166d');
 
 app.use(cors());
 
