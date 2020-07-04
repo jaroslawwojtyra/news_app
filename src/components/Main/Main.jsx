@@ -7,15 +7,14 @@ import {Switch, Route} from "react-router-dom";
 
 const Main = () => (
   <main>
-
     <Switch>
-      <Route path="/">
+      <Route exact path="/">
         <HomePage />
       </Route>
-      <Route path="/election">
+      <Route exact path="/election">
         <ElectionPage />
       </Route>
-      <Route path="/help">
+      <Route exact path="/help">
         <HelpPage />
       </Route>
     </Switch>
