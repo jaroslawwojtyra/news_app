@@ -7,14 +7,14 @@ const ElectionPage = () => {
   const [startDate, setStartDate] = useState(new Date());
 
 return (
-  <div class="ElectionPage">
+  <div>
     <div>
-      <label>Data początkowa</label>
-      <DatePicker selected={startDate} onChange={setStartDate}/>
+      <label>Data początkowa: </label>
+      <DatePicker selected={startDate} onChange={setStartDate} />
     </div>
     <div>
-      <label>Data końcowa</label>
-      <DatePicker selected={endDate} onChange={setEndDate}/>
+      <label>Data końcowa: </label>
+      <DatePicker selected={endDate} onChange={setEndDate} />
     </div>
   </div>
 );
