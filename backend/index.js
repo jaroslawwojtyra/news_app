@@ -7,8 +7,13 @@ const port = 4000;
 app.use(cors());
 
 app.get('/articles', (req, res) => {
-  console.log(req.query);
   newsapi.getMainArticles(req.query).then((response) => {
+    res.json(response.body);
+  });
+});
+
+app.get('/election', (req, res) => {
+  newsapi.getElectionNews(req.query).then((response) => {
     res.json(response.body);
   });
 });
