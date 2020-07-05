@@ -7,7 +7,7 @@ class CategoryDropdown extends React.Component {
     super(props);
 
     this.state = {
-      value: null
+      value: ""
     }}
 
   onValueChange = (e) => {

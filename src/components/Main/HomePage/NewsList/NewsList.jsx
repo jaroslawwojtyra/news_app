@@ -6,6 +6,7 @@ const NewsList = (props) => (
   <div id="NewsList">
     {props.articles.map((item) => (
       <NewsCard
+        key={item.publishedAt}
         urlToImage={item.urlToImage}
         title={item.title}
         publishedDate={item.publishedAt}
