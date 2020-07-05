@@ -20,7 +20,6 @@ componentDidMount() {
 componentDidUpdate(prevProps, prevState, snapshot) {
   if (prevState.category !== this.state.category) {
     this.getArticles();
-    console.log(this.state.category);
   }
 }
 
