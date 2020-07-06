@@ -11,7 +11,7 @@ const getMainArticles = (query) => superagent
 
 const getElectionNews = (query) => superagent
 .get(`${NEWS_API_URL}${EVERYTHING_ENDPOINT_PATH}`)
-.query({ language: 'pl', ...query, apiKey: API_KEY, q: 'wybory'});
+.query({ language: 'pl', ...query, apiKey: API_KEY, q: `'election' OR 'wybory'` });
 
 module.exports = {
   getMainArticles,
