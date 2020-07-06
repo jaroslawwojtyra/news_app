@@ -9,13 +9,14 @@
   width: 100%
 }
 
-.NewsCard=content {
+.NewsConntent {
   padding: 0 12px 12px 12px;
 }
 
 .CardFooter {
   text-align: right;
-  font-size: 12px
+  font-size: 12px;
+  padding: 0 6px 6px 0;
 }
 
 .CardFooter > p {

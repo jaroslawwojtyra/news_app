@@ -10,12 +10,14 @@ const ElectionPage = () => {
   const [endDate, setEndDate] = useState(moment().subtract(1, 'months').toDate());
   const [startDate, setStartDate] = useState(moment().toDate());
   const [results, setResults] = useState(null);
+  const fethArticles = () => {
+    fetch(`http://localhost:4000/election?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}`)
+      .then((response) => response.json())
+      .then((res) => setResults(res));
+  }
 
-useEffect (() => {
-  fetch(`http://localhost:4000/election`)
-    .then((response) => response.json())
-    .then((res) => setResults(res));
-}, []);
+useEffect (() => { fethArticles(); }, []);
+useEffect (() => { fethArticles(); }, [startDate, endDate]);
 
 console.log(startDate);
 
@@ -27,9 +29,9 @@ return (
     </div>
     <div>
       <label>Data końcowa: </label>
-      <DatePicker selected={endDate} onChange={setEndDate} />
+      <DatePicker selected={endDate} onChange={setEndDate} dateFormat="dd-MM-yyyy"/>
     </div>
-    {results ? (<NewsList articles={results.articles} />) : null };
+    {results ? (<NewsList articles={results.articles} />) : null }
   </div>
 );
 };
