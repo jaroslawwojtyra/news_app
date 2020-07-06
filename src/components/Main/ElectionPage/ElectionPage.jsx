@@ -17,11 +17,13 @@ useEffect (() => {
     .then((res) => setResults(res));
 }, []);
 
+console.log(startDate);
+
 return (
   <div className="ElectionPage">
     <div>
       <label>Data początkowa: </label>
-      <DatePicker selected={startDate} onChange={setStartDate} />
+      <DatePicker selected={startDate} onChange={setStartDate} dateFormat="dd-MM-yyyy"/>
     </div>
     <div>
       <label>Data końcowa: </label>
