@@ -1,8 +1,9 @@
 import './Header.css'
 import React from 'react';
 import {Link} from "react-router-dom";
+import LangDropdown from './LangDropdown';
 
-const Header = () => (
+const Header = ({ onLangChange }) => (
   <header>
   <nav>
     <ul>
@@ -17,6 +18,9 @@ const Header = () => (
       </li>
     </ul>
   </nav>
+  <div id="LangBar">
+    <LangDropdown onLangChange={ onLangChange } />
+  </div>
   </header>
 );
 

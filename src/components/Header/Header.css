@@ -1,4 +1,6 @@
 header {
   height: 80px;
-  background-color: lightblue
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
 }
