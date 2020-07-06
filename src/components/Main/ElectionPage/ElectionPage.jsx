@@ -1,25 +1,24 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import './ElectionPage.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NewsList from '../HomePage/NewsList/NewsList'
 import moment from 'moment'
-
+import LanguageContext from '../../../LanguageContext'
 
 const ElectionPage = () => {
-  const [endDate, setEndDate] = useState(moment().toDate());
   const [startDate, setStartDate] = useState(moment().subtract(1, 'months').toDate());
+  const [endDate, setEndDate] = useState(moment().toDate());
   const [results, setResults] = useState(null);
+  const lang = useContext(LanguageContext);
+
   const fethArticles = useCallback(() => {
-    fetch(`http://localhost:4000/election?to=${startDate.toISOString()}&from=${endDate.toISOString()}`)
+    fetch(`http://localhost:4000/election?language=${lang}&to=${startDate.toISOString()}&from=${endDate.toISOString()}`)
       .then((response) => response.json())
       .then((res) => setResults(res));
-  }, [startDate, endDate]);
+  }, [startDate, endDate, lang]);
 
-useEffect (() => { fethArticles(); }, []);
-useEffect (() => { fethArticles(); }, [startDate, endDate]);
-
-console.log(startDate);
+useEffect (() => { fethArticles(); }, [fethArticles]);
 
 return (
   <div className="ElectionPage">
