@@ -30,7 +30,7 @@ getArticles(){
   console.log(this.context);
   const { category } = this.state;
   const query = category ? `&category=${category}` : '';
-  fetch(`http://localhost:4000/articles?cauntry=${this.context}${query}`)
+  fetch(`http://localhost:4000/articles?country=${this.context}${query}`)
     .then((response) => response.json())
     .then((results) => this.setState({ results }));
 }

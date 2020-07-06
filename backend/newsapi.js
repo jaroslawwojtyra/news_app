@@ -7,11 +7,11 @@ const EVERYTHING_ENDPOINT_PATH = '/everything'
 
 const getMainArticles = (query) => superagent
 .get(`${NEWS_API_URL}${TOP_HEADLINES_ENDPOINT_PATH}`)
-.query({ ...query, country: 'pl', apiKey: API_KEY});
+.query({country: 'pl', ...query, apiKey: API_KEY});
 
 const getElectionNews = (query) => superagent
 .get(`${NEWS_API_URL}${EVERYTHING_ENDPOINT_PATH}`)
-.query({ ...query, language: 'pl', apiKey: API_KEY, q: 'wybory'});
+.query({ language: 'pl', ...query, apiKey: API_KEY, q: 'wybory'});
 
 module.exports = {
   getMainArticles,
