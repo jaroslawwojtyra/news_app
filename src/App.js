@@ -8,7 +8,6 @@ import LanguageContext from "./LanguageContext";
 const App = () => {
 
 const [lang, setLang] = useState('pl');
-console.log(lang);
 
 return (
   <div id="App">

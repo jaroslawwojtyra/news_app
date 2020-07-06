@@ -12,22 +12,25 @@ class HomePage extends React.Component {
 
     this.state = {
       results: null,
-      category: null
+      category: null,
+      lang: null
     }
   }
 componentDidMount() {
   this.getArticles();
-}
+  this.setState({ lang: this.context });
+};
 
 componentDidUpdate(prevProps, prevState, snapshot) {
-  console.log(this.context);
-  if (prevState.category !== this.state.category) {
+  if
+  (prevState.category !== this.state.category ||
+    prevState.lang !== this.state.lang) {
     this.getArticles();
   }
+  if (prevState.lang !== this.context) this.setState({ lang: this.context });
 }
 
 getArticles(){
-  console.log(this.context);
   const { category } = this.state;
   const query = category ? `&category=${category}` : '';
   fetch(`http://localhost:4000/articles?country=${this.context}${query}`)

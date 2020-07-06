@@ -19,7 +19,6 @@ class LangDropdown extends React.Component {
   onValueChange = (e) => {
     const value = e.target.value;
     this.setState({ value });
-    console.log(value);
     this.props.onLangChange(value);
 };
 
