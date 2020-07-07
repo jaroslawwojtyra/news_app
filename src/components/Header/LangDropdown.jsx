@@ -12,7 +12,7 @@ class LangDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: null
+      value: 'pl'
     };
   };
 
@@ -23,8 +23,9 @@ class LangDropdown extends React.Component {
 };
 
   render() {
+    console.log(this.state);
     const { value } = this.state;
-
+console.log({ value });
     return (
       <div id="Lang">
         <label>Język:</label>
