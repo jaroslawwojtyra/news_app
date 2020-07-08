@@ -23,9 +23,7 @@ class LangDropdown extends React.Component {
 };
 
   render() {
-    console.log(this.state);
     const { value } = this.state;
-console.log({ value });
     return (
       <div id="Lang">
         <label>Język:</label>
