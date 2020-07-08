@@ -13,7 +13,7 @@ class HomePage extends React.Component {
     this.state = {
       results: null,
       category: null,
-      lang: null
+      lang: 'pl'
     }
   }
 componentDidMount() {
