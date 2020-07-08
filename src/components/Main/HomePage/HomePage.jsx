@@ -3,7 +3,7 @@ import './HomePage.css';
 import NewsList from './NewsList/NewsList'
 import NewsFiltersBar from './NewsFiltersBar/NewsFiltersBar'
 import LanguageContext from '../../../LanguageContext'
-
+import { Pagination } from 'semantic-ui-react'
 
 class HomePage extends React.Component {
   static contextType = LanguageContext;
@@ -45,6 +45,11 @@ render() {
   if (!results) return null;
   return (
     <div id="HomePage">
+      {results && results.totalResults ? (
+        <Pagination
+          defaultActivePage={1}
+          totalPages={ Math.ceil(results.totalResults / 20) }
+          />) : null }
       <NewsFiltersBar onCategoryChange={this.setCategory} />
       <NewsList articles={results.articles} />
     </div>
