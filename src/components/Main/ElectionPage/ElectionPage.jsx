@@ -5,21 +5,33 @@ import "react-datepicker/dist/react-datepicker.css";
 import NewsList from '../HomePage/NewsList/NewsList'
 import moment from 'moment'
 import LanguageContext from '../../../LanguageContext'
-import SortByDropdown from './SortByDropdown'
+
+const sortByOption = [
+{ key: 1, value: 'publishedAt', name: 'Data publikacji'},
+{ key: 2, value: 'popularity', name: 'Popularność'},
+{ key: 3, value: 'relevancy', name: 'Zgodność'},]
+
+
 
 const ElectionPage = () => {
   const [startDate, setStartDate] = useState(moment().subtract(1, 'months').toDate());
   const [endDate, setEndDate] = useState(moment().toDate());
   const [results, setResults] = useState(null);
+  const [sortBy, setSortBy] = useState(sortByOption[0].value)
   const lang = useContext(LanguageContext);
 
   const fethArticles = useCallback(() => {
-    fetch(`http://localhost:4000/election?language=${lang}&to=${startDate.toISOString()}&from=${endDate.toISOString()}&sortBy=publishedAt`)
+    fetch(`http://localhost:4000/election?language=${lang}&to=${startDate.toISOString()}&from=${endDate.toISOString()}&sortBy=${sortBy}`)
       .then((response) => response.json())
       .then((res) => setResults(res));
-  }, [startDate, endDate, lang]);
+  }, [startDate, endDate, lang, sortBy]);
 
 useEffect (() => { fethArticles(); }, [fethArticles]);
+
+const onValueChange = (e) => {
+  const value = e.target.value;
+  setSortBy(value);
+}
 
 return (
   <div className="ElectionPage">
@@ -41,7 +53,14 @@ return (
         maxDate={ new Date() }
         />
     </div>
-    <SortByDropdown />
+    <div>
+      <label>Sortuj po: </label>
+      <select value = { sortByOption.name } onChange={ onValueChange }>
+        {sortByOption.map(({ key, value, name } ) =>
+          <option key={key} value={value}>{name}</option>
+        )}
+      </select>
+    </div>
     {results ? (<NewsList articles={results.articles} />) : null }
   </div>
 );
