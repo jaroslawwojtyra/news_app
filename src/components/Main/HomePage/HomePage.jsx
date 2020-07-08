@@ -45,12 +45,12 @@ render() {
   if (!results) return null;
   return (
     <div id="HomePage">
+      <NewsFiltersBar onCategoryChange={this.setCategory} />
       {results && results.totalResults ? (
         <Pagination
           defaultActivePage={1}
           totalPages={ Math.ceil(results.totalResults / 20) }
           />) : null }
-      <NewsFiltersBar onCategoryChange={this.setCategory} />
       <NewsList articles={results.articles} />
     </div>
     )
