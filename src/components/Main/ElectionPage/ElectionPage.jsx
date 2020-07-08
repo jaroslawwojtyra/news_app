@@ -11,8 +11,6 @@ const sortByOption = [
 { key: 2, value: 'popularity', name: 'Popularność'},
 { key: 3, value: 'relevancy', name: 'Zgodność'},]
 
-
-
 const ElectionPage = () => {
   const [startDate, setStartDate] = useState(moment().subtract(1, 'months').toDate());
   const [endDate, setEndDate] = useState(moment().toDate());
