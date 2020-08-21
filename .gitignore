@@ -2,6 +2,7 @@
 
 # apikey
 /backend/newsapi.js
+
 # dependencies
 /node_modules
 /.pnp
