@@ -13,7 +13,9 @@ class HomePage extends React.Component {
     this.state = {
       results: null,
       category: null,
-      lang: 'pl'
+      lang: 'pl',
+      pagesNumber: 1,
+      page: 1
     }
   }
 componentDidMount() {
@@ -23,27 +25,28 @@ componentDidMount() {
 
 componentDidUpdate(prevProps, prevState, snapshot) {
   if
-  (prevState.category !== this.state.category || prevState.lang !== this.state.lang) {
+  (prevState.category !== this.state.category ||
+    prevState.lang !== this.state.lang) {
     this.getArticles();
   }
   if (prevState.lang !== this.context) this.setState({ lang: this.context });
-//TODO: get articles jak strona się różni od poprzedniej
+  if (prevState.page !== this.state.page) this.getArticles();
 }
 
 getArticles(){
-  const { category } = this.state;
-  const query = category ? `&category=${category}` : '';
-  //TODO dodanie do wuery aktualnej strony zgodnie z dokumentacją newsapi
-  fetch(`http://localhost:4000/articles?country=${this.context}${query}`)
+  const { category, page } = this.state;
+  const queryWithCategory = category ? `&category=${category}` : '';
+  const queryWithPage = page ? `&page=${page}` : '' ;
+
+  fetch(`http://localhost:4000/articles?country=${this.context}${queryWithCategory}${queryWithPage}`)
     .then((response) => response.json())
     .then((results) => this.setState({ results }));
 }
 
 setCategory = (category) => this.setState({ category });
-onPageChange = (e, {activePage}) =>(
-  console.log("test")
-  //TODO: ustawienie w stanie aktywnej strony
-);
+onPageChange = (e, {activePage}) =>{
+  this.setState({ page: activePage });
+};
 
 render() {
   const { results } = this.state;
