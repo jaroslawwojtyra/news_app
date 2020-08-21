@@ -14,7 +14,6 @@ class HomePage extends React.Component {
       results: null,
       category: null,
       lang: 'pl',
-      pagesNumber: 1,
       page: 1
     }
   }

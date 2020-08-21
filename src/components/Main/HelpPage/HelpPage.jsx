@@ -2,7 +2,7 @@ import React from 'react';
 
 const HelpPage = () => (
 <div>
-  HelpPage
+  W razie pytań napisz: <a href="mailto:jaroslawwojtyra@gmail.com?subject=kolko_i_krzyzyk">jaroslawwojtyra@gmail.com</a>
 </div>
 );
 
